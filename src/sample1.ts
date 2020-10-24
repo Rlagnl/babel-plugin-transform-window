@@ -3,14 +3,13 @@ const estraverse = require('estraverse')
 const escodegen = require('escodegen')
 // const code = `function getUser() {}`
 // const code = `funcrion getUser() { window.location = ''; aaa = 1; var b = 2 }`
-const code = `
+let code = `
   var window = {}; 
   window.location; 
   ccc.window; 
   aaa.bbb.window; 
   var ddd = window.aaa
 `
-
 // 生成 AST
 const ast = esprima.parseScript(code)
 // 转换 AST，只会遍历 type 属性
