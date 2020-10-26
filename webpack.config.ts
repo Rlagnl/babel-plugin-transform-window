@@ -4,6 +4,7 @@ import htmlWebpackPlugin from 'html-webpack-plugin'
 import { CleanWebpackPlugin } from 'clean-webpack-plugin'
 import UglifyJsPlugin from 'uglifyjs-webpack-plugin'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
+import FileListPlugin from './scripts/plugin'
 // import './scripts/script1.ts'
 
 const config: webpack.Configuration = {
@@ -87,7 +88,8 @@ const config: webpack.Configuration = {
     new CleanWebpackPlugin(),
     new ExtractTextPlugin({
       filename: 'index.[hash:8].css'
-    })
+    }),
+    new FileListPlugin({})
   ],
   node: {
     fs: 'empty'
